@@ -1,0 +1,592 @@
+public class Main {
+    private void printReceipt(){
+        System.out.println("********RECEIPT********");
+
+        System.out.println("Order ID: " + orderID);
+        System.out.println("Order pizzaIngredients: " + pizzaIngredients);
+        System.out.println("Order sides: " + sides);
+        System.out.println("Order drinks: " + drinks);
+        System.out.println("Order  pizzaPrice: " + pizzaPrice);
+        System.out.println("Order Total: " + orderTotal);
+    }
+}
+public class SliceoHeaven {
+    public String storeName;
+    public String storeAddress;
+    public String storeEmail;
+    public long storePhone;
+    
+
+    public String pizzaIngredients;
+    private double pizzaPrice;
+    private String sides;
+    private String drinks;
+
+    private String orderID;
+    private double orderTotal;
+    public void takeOrder(String id, String piin, double total,String side,String drink,double pPrice){
+        pizzaIngredients = piin;
+        orderID = id;
+        orderTotal = total;
+        sides = side;
+        drinks = drink;
+        pizzaPrice = pPrice;
+
+        Scanner scanner=new
+        
+        Scanner(System.in);
+
+        System.out.printIn("Please pick any three of the following ingredients:
+ 1. Mushroom
+ 2. Paprika
+ 3. Sun-dried tomatoes
+ 4. Chicken
+ 5. Pineapple
+ Enter any three choices (1, 2, 3,…) separated by spaces:");
+
+ String[] =
+
+ scanner.nextline().split("");
+
+ String ingChoice1=ingredients[0];
+
+ String ingChoice2=ingredients[1];
+
+ String ingChoice3=ingredients[2];
+
+
+
+
+        Scanner scanner=newingredients
+        
+        Scanner(System.in);
+       
+        System.out.printIn("Enter three ingredients for your pizza (use spaces to separate
+ ingredients):");
+       
+        String[] ingredients=
+
+        scanner.nextline().split("");
+
+        String ing1=ingredients[0];
+        
+        String ing2=ingredients[1];
+
+        String ing3=ingredients[2];
+
+        System.out.printIn("Enter size of pizza (Small, Medium, Large):");
+
+        String pizzaSize=scanner.nextline();
+
+        System.out.printIn("Do you want extra cheese (Y/N):");
+
+        String extraCheese=scanner.nextline();
+
+        System.out.printIn("Enter one side dish (Calzone, Garlic bread, None):");
+
+        String sideDish=scanner.nextline();
+        
+        System.out.printIn("Enter drinks(Cold Coffee, Cocoa drink, Coke, None):");
+
+        String drinks=scanner.nextline();
+
+        System.out.printIn("Would you like the chance to pay only half for your order? (Y/N):");
+
+        String wantDiscount=scanner.nextline();
+
+        System.out.printIn("Following are the side dish that go well with your pizza:
+ 1. Calzone
+ 2. Garlic bread
+ 3. Chicken puff
+ 4. Muffin
+ 5. Nothing for me
+ What would you like? Pick one (1, 2, 3,…):");
+
+ String[] =
+
+ scanner.nextline().split("");
+
+ String sideDishChoice1=ingredients[0];
+
+ String sideDishChoice2=ingredients[1];
+
+ String sideDishChoice3=ingredients[2];
+
+ int sideDishChoice=scanner.nextInt();
+
+ String sideDish;
+
+ switch(sideDishChoice){
+    case 1:
+
+    sideDish="Calzone";
+    break;
+    case 2:
+
+    sideDish="Garlic bread";
+    break;
+
+    case 3:
+
+    sideDish="Chicken puff";
+    break;
+
+    case 4:
+
+    sideDish="Muffin";
+    break;
+
+    case 4:
+
+    sideDish="Nothing for me";
+    break;
+    default:
+    sideDiish="Invalid choice";
+    break;
+
+ }
+
+ try {
+    System.out.print("Please enter your birth date (format: yyyy-MM-dd): ");
+    String inputDate = scanner.nextLine();
+    Date date = sdf.parse(inputDate);
+    Date fiveYearsAgo = new Date(System.currentTimeMillis() - 5 * 365 * 24 * 60 * 60 * 1000L);
+    Date oneTwentyYearsAgo = new Date(System.currentTimeMillis() - 120 * 365 * 24 * 60 * 60 * 1000L);
+
+    if (date.before(fiveYearsAgo) || date.before(oneTwentyYearsAgo)) {
+        System.out.println("Invalid date. You are either too young or too dead to order. Please enter a valid date:");
+    } else {
+        validDate = true;
+        System.out.println("Valid birth date entered."); 
+    }
+} catch (ParseException e) {
+    System.out.println("Invalid date format. Please enter a valid date (format: yyyy-MM-dd):");
+}
+
+        if(wantDiscount.equalsIgnoreCase("Y")){
+            isItYourBirthday();
+
+        }else{
+            makeCardPayment();
+        }
+        scanner.close();
+        
+        System.out.println("Order accepted!");
+
+        System.out.println("Order is being prepared");
+
+        public static void isItYourBirthday(){
+            
+            System.out.println("Enter your birthday (in the format yyyy - MM - dd):");
+        String birthdateStr = scanner.nextLine();
+        LocalDate birthdate = LocalDate.parse(birthdateStr);
+        LocalDate today = LocalDate.now();
+        int age = Period.between(birthdate, today).getYears();
+        if (age < 18 && birthdate.getDayOfMonth() == today.getDayOfMonth() && birthdate.getMonth() == today.getMonth()) {
+            System.out.println("Congratulations! You pay only half the price for your order");
+        } else {
+            System.out.println("Too bad! You do not meet the conditions to get our 50% discount");
+        }
+
+        scanner.close();
+    }
+    public static void makeCardPayment() {
+        Scanner scanner = new Scanner(System.in);
+
+    
+        System.out.println("Enter your card number:");
+        long cardNumber = scanner.nextLong();
+
+        scanner.close();
+
+        while (true) {
+            System.out.println("Enter the card number:");
+            String cardNumber = scanner.nextLine();
+            if (cardNumber.length() == 14 &&!cardNumber.equals(String.valueOf(blacklistedNumber))) {
+                // Here you can perform the actual card payment processing
+                break;
+            } else {
+                System.out.println("Invalid card number. Please enter a 14 - digit number that is not the blacklisted number.");
+            }
+        }
+    }
+
+    
+
+public class CardPaymentProcessor {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.print("Please enter the card's expiry date (in the format yyyy-MM): ");
+        String expiryDate = scanner.nextLine();
+
+        
+        System.out.print("Please enter the card's cvv number (3 digits): ");
+        int cvv = scanner.nextInt();
+
+        
+        System.out.print("Please enter the card number: ");
+        long cardNumber = scanner.nextLong();
+
+        
+        long blacklistedNumber = 12345678901234L; 
+
+        processCardPayment(cardNumber, expiryDate, cvv, blacklistedNumber);
+
+        scanner.close();
+    }
+
+    public static void processCardPayment(long cardNumber, String expiryDate, int cvv, long blacklistedNumber) {
+        
+        String cardNumberStr = Long.toString(cardNumber);
+        if (cardNumberStr.length() == 14) {
+            System.out.println("Card accepted");
+        } else {
+            System.out.println("Invalid card");
+            return;
+        }
+
+        
+        long firstCardDigit = Long.parseLong(cardNumberStr.substring(0, 1));
+
+        
+        if (cardNumber == blacklistedNumber) {
+            System.out.println("Card is blacklisted. Please use another card.");
+            return;
+        }
+
+        
+        String lastFourDigits = cardNumberStr.substring(cardNumberStr.length() - 4);
+
+        
+        System.out.println("First card digit: " + firstCardDigit);
+        System.out.println("Last four digits: " + lastFourDigits);
+        System.out.println("Expiry date: " + expiryDate);
+        System.out.println("CVV: " + cvv);
+    }
+}
+        try{
+            Thread.sleep(5000);
+            makePizza( piin);
+        } catch (InterruptedException e){
+            System.out.println("Order is ready for pickup!");
+        }
+
+        System.out.println("Your order is ready!");
+
+        printReceipt();
+
+
+    }
+    private void makePizza(String piin){
+        pizzaIngredients = piin;
+    }
+    
+    
+    
+}
+public class processCardPayment{
+    public String cardNumber;
+    public String expiryDate;
+    public int cvv;
+
+    int cardLength=cardNumber.Length();
+    if(cardLength==14){
+        system.out.printIn("Card accpet");
+    }
+    else{
+        system.out.printIn("Invaid card");
+        return;
+    }
+    int firstCardDigit=Integer.parseInt(cardNumber.substring(0,1));
+
+    String blacklistNumber;
+    if(cardNumber.equals(blacklistNumber)){
+        system.out.printIn("Card is blacklisted. Please use
+ another card");
+     return;
+    }
+    public enum PizzaSelection {
+        PEPPERONI("Pepperoni", "Lots of pepperoni and extra cheese", 18),
+        HAWAIIAN("Hawaiian", "Pineapple, ham, and extra cheese", 22),
+        VEGGIE("Veggie", "Green pepper, onion, tomatoes, mushroom, and black olives", 25),
+        BBQ_CHICKEN("BBQ Chicken", "Chicken in BBQ sauce, bacon, onion, green pepper, and cheddar cheese", 35),
+        EXTRAVAGANZA("Extravaganza", "Pepperoni, ham, Italian sausage, beef, onions, green pepper, mushrooms, black olives, and extra cheese", 45);
+    
+        private final String pizzaName;
+        private final String pizzaToppings;
+        private final int price;
+    
+        // Constructor
+        PizzaSelection(String pizzaName, String pizzaToppings, int price) {
+            this.pizzaName = pizzaName;
+            this.pizzaToppings = pizzaToppings;
+            this.price = price;
+        }
+    
+        // Getter for pizzaName
+        public String getPizzaName() {
+            return pizzaName;
+        }
+    
+        // Getter for pizzaToppings
+        public String getPizzaToppings() {
+            return pizzaToppings;
+        }
+    
+        // Getter for price
+        public int getPrice() {
+            return price;
+        }
+    
+        @Override
+        public String toString() {
+            return "PizzaSelection{" +
+                    "pizzaName='" + pizzaName + '\'' +
+                    ", pizzaToppings='" + pizzaToppings + '\'' +
+                    ", price=" + price +
+                    '}';
+        }
+    }
+
+
+
+    public class PizzaToppingExample {
+        public static void main(String[] args) {
+            PizzaToppings topping = PizzaToppings.HAM;
+            double toppingPrice = topping.getPrice();
+            System.out.println("Topping: " + topping.getName() + ", Price: " + toppingPrice);
+        }
+    }
+
+    public enum PizzaToppings {
+        HAM("Ham", 2),
+        PEPPERONI("Pepperoni", 2),
+        BEEF("Beef", 2),
+        CHICKEN("Chicken", 2),
+        SAUSAGE("Sausage", 2),
+        PINEAPPLE("Pineapple", 1),
+        ONION("Onion", 0.5),
+        TOMATOES("Tomatoes", 0.4),
+        GREEN_PEPPER("Green Pepper", 0.5),
+        BLACK_OLIVES("Black Olives", 0.5),
+        SPINACH("Spinach", 0.5),
+        CHEDDAR_CHEESE("Cheddar Cheese", 0.8),
+        MOZZARELLA_CHEESE("Mozzarella Cheese", 0.8),
+        FETA_CHEESE("Feta Cheese", 1),
+        PARMESAN_CHEESE("Parmesan Cheese", 1);
+    
+        private final String name;
+        private final double price;
+    
+        // Constructor
+        PizzaToppings(String name, double price) {
+            this.name = name;
+            this.price = price;
+        }
+    
+        // Getter for name
+        public String getName() {
+            return name;
+        }
+    
+        // Getter for price
+        public double getPrice() {
+            return price;
+        }
+    
+        // toString method
+        @Override
+        public String toString() {
+            return name + " -$" + price;
+        }
+    }
+    public enum PizzaSize {
+        LARGE("Large", 10),
+        MEDIUM("Medium", 5),
+        SMALL("Small", 0);
+    
+        private final String pizzaSize;
+        private final int addToPizzaPrice;
+    
+        // Constructor
+        PizzaSize(String pizzaSize, int addToPizzaPrice) {
+            this.pizzaSize = pizzaSize;
+            this.addToPizzaPrice = addToPizzaPrice;
+        }
+    
+        // Getter for pizzaSize
+        public String getPizzaSize() {
+            return pizzaSize;
+        }
+    
+        // Getter for addToPizzaPrice
+        public int getAddToPizzaPrice() {
+            return addToPizzaPrice;
+        }
+    
+        // toString method
+        @Override
+        public String toString() {
+            return "PizzaSize{" +
+                    "pizzaSize='" + pizzaSize + '\'' +
+                    ", addToPizzaPrice=" + addToPizzaPrice +
+                    '}';
+        }
+    }
+    public enum SideDish {
+        CALZONE("Calzone", 15),
+        CHICKEN_PUFF("Chicken Puff", 20),
+        MUFFIN("Muffin", 12),
+        NOTHING("No side dish", 0);
+    
+        private final String sideDishName;
+        private final int addToPizzaPrice;
+    
+        // Constructor
+        SideDish(String sideDishName, int addToPizzaPrice) {
+            this.sideDishName = sideDishName;
+            this.addToPizzaPrice = addToPizzaPrice;
+        }
+    
+        // Getter for sideDishName
+        public String getSideDishName() {
+            return sideDishName;
+        }
+    
+        // Getter for addToPizzaPrice
+        public int getAddToPizzaPrice() {
+            return addToPizzaPrice;
+        }
+    
+        // toString() method
+        @Override
+        public String toString() {
+            return sideDishName + " (Adds$" + addToPizzaPrice + " to pizza price)";
+        }
+    }
+    public enum Drinks {
+        COCA_COLA("Coca Cola", 8),
+        COCOA_DRINK("Cocoa Drink", 10),
+        NOTHING("No drinks", 0);
+    
+        private final String drinkName;
+        private final int addToPizzaPrice;
+    
+        // Constructor
+        Drinks(String drinkName, int addToPizzaPrice) {
+            this.drinkName = drinkName;
+            this.addToPizzaPrice = addToPizzaPrice;
+        }
+    
+        // Getter for drinkName
+        public String getDrinkName() {
+            return drinkName;
+        }
+    
+        // Getter for addToPizzaPrice
+        public int getAddToPizzaPrice() {
+            return addToPizzaPrice;
+        }
+    
+        @Override
+        public String toString() {
+            return drinkName;
+        }
+    }
+    import java.util.Scanner;
+
+// Assume this is the PizzaSelection enum
+enum PizzaSelection {
+    PEPPERONI_PIZZA("Pepperoni Pizza with Lots of pepperoni and extra cheese, for €18"),
+    HAWAIIAN_PIZZA("Hawaiian Pizza with Pineapple, ham, and extra cheese, for €22"),
+    VEGGIE_PIZZA("Veggie Pizza with Green pepper, onion, tomatoes, mushroom, and black olives, for €25"),
+    BBQ_CHICKEN("BBQ Chicken with Chicken in BBQ - sauce, bacon, onion, green pepper, and cheddar cheese, for €35"),
+    EXTRAVAGANZA_PIZZA("Extravaganza Pizza with Pepperoni, ham, Italian sausage, beef, onions, green pepper, mushrooms, black olives, and extra cheese, for €45");
+
+    private final String description;
+
+    PizzaSelection(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return description;
+    }
+}
+
+public class Pizzeria {
+    public static void takeOrder() {
+        System.out.println("Welcome to Slice - o - Heaven Pizzeria. Here’s what we serve:");
+        int option = 1;
+        for (PizzaSelection pizza : PizzaSelection.values()) {
+            System.out.println(option + ". " + pizza);
+            option++;
+        }
+        System.out.println(option + ". Custom Pizza with a maximum of 10 toppings that you choose");
+        System.out.print("Please enter your choice (1 - " + option + "): ");
+        Scanner scanner = new Scanner(System.in);
+        int customerChoice = scanner.nextInt();
+        // Here you can add code to handle the customer's choice further.
+        // For example, if (customerChoice == 1) { // code to process pepperoni pizza order }
+        scanner.close();
+    }
+}
+// 假设存在 PizzaSelection 枚举
+enum PizzaSelection {
+    PEPPERONI("Pepperoni Pizza with Lots of pepperoni and extra cheese, for €18", 18),
+    // 可以添加其他披萨选项
+    ;
+
+    private final String details;
+    private final int price;
+
+    PizzaSelection(String details, int price) {
+        this.details = details;
+        this.price = price;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+}
+
+import java.util.Scanner;
+
+public class PizzaOrdering {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] pizzasOrdered = new String[5]; // 假设最多订 5 个披萨
+        int totalOrderPrice = 0;
+        System.out.println("Please enter a number from 1 - 5 to order a pizza (0 to stop ordering):");
+        int choice = scanner.nextInt();
+        int index = 0;
+        while (choice!= 0) {
+            if (choice >= 1 && choice <= 5) {
+                PizzaSelection selectedPizza = PizzaSelection.values()[choice - 1];
+                pizzasOrdered[index] = selectedPizza.getDetails();
+                totalOrderPrice += selectedPizza.getPrice();
+                index++;
+            } else {
+                System.out.println("Invalid choice. Please enter a number from 1 - 5.");
+            }
+            System.out.println("Please enter a number from 1 - 5 to order a pizza (0 to stop ordering):");
+            choice = scanner.nextInt();
+        }
+
+        System.out.println("Pizzas ordered:");
+        for (int i = 0; i < index; i++) {
+            System.out.println(pizzasOrdered[i]);
+        }
+        System.out.println("Total order price: €" + totalOrderPrice);
+    }
+}
+
+}
